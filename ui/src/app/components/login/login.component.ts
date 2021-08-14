@@ -36,11 +36,10 @@ export class LoginComponent implements OnInit {
             this.loading = false;
             this.error = response.statusText;
           }
-
-          const token = this.extractAuthHeader(this.login.userName, response);
-
-          if (token) {
-            localStorage.setItem('authToken', JSON.stringify({ userName: this.login.userName, 'token': token }))
+          console.log("extracting token from" + JSON.stringify(response))
+          console.log("token: "+response.bearer);
+          if (response.bearer) {
+            localStorage.setItem('authToken', JSON.stringify({ username: this.login.username, 'token': response.bearer }))
             this.router.navigate([this.returnUrl]);
           } else {
             this.loading = false;
@@ -58,13 +57,5 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  private extractAuthHeader(userName: String, response: Response) {
-    if (response.headers.has('authorization')) {
-      const token = response.headers.get('authorization');
-      return token;
-    } else {
-      return null;
-    }
-  }
 
 }

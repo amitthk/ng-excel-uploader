@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { UserManagerModule } from './modules/usermanager/usermanager.module';
 import { BucketManagerModule } from './modules/bucketmanager/bucketmanager.module';
+import { ExcelUtilsModule } from './modules/excel-utils/excel-utils.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BucketManagerModule } from './modules/bucketmanager/bucketmanager.modul
     RouterModule,
     AppRoutingModule,
     BucketManagerModule,
-    UserManagerModule
+    UserManagerModule,
+    ExcelUtilsModule
   ],
   providers: [JvcdpService,
   AuthService],

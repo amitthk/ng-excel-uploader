@@ -1,5 +1,5 @@
 export class UserLogin{
-    userName: String = '';
+    username: String = '';
     password: String = '';
     emailAddress: String= '';
     apiId: string= '';

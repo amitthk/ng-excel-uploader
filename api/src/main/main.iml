@@ -10,5 +10,7 @@
     <orderEntry type="library" name="Maven: io.springfox:springfox-core:2.7.0" level="project" />
     <orderEntry type="library" name="Maven: io.springfox:springfox-spi:2.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:4.2.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:4.2.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:4.3.6.RELEASE" level="project" />
   </component>
 </module>

@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-compact">
+                    <tr>
+                        <td>
+                            <input type="file"
+                            id="file" accept=".xls,.xlsx"
+                            (change)="handleFileInput($event)">
+                                         </td>
+                        <td>
+                            <button type="button" class="btn btn-success" (click)="uploadExcel($event)">Upload</button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="loadedJsonObject">
+                        <td>
+                            {{loadedJsonObject.length}} rows loaded.
+                            <jw-modal id="jsonData" >
+                                <pre>
+                                {{loadedJsonObject | json}}
+                                </pre>
+                                <button (click)="closeModal('jsonData');">Close</button>
+                            </jw-modal>
+                        </td>
+                        <td> 
+                            <button (click)="openModal('jsonData')">ShowData</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

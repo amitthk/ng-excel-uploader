@@ -20,9 +20,9 @@ public class SimpleCORSFilter implements javax.servlet.Filter {
 		HttpServletRequest  req = (HttpServletRequest) request;
 		// Just REPLY OK if request method is OPTIONS for CORS (pre-flight)
 
-		res.addHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Origin", "*");
 		res.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
-		res.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With");
+		res.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type");
 		if ( req.getMethod().equals("OPTIONS") ) {
         res.setStatus(HttpServletResponse.SC_OK);
         return;

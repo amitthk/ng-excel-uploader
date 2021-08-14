@@ -13,15 +13,14 @@ import java.util.ArrayList;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    @Value("${app.login.user.name}")
-    String appLoginUserName;
-
-    @Value("${app.login.user.passwd}")
-    String appLoginUserPasswd;
+//    @Value("${app.login.user.name}")
+//    String appLoginUserName;
+//
+//    @Value("${app.login.user.passwd}")
+//    String appLoginUserPasswd;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //once user is authenticated everybody is running right now with admin account but should be properly set here
-        return new User(appLoginUserName, appLoginUserPasswd, new ArrayList<>());
+        return new User(username,username, new ArrayList<>());
     }
 }
