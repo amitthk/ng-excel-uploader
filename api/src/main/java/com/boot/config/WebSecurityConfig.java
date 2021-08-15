@@ -51,6 +51,9 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
+    @Autowired
+    private SimpleCORSFilter simpleCORSFilter;
+
     @Value("${app.login.user.name}")
     String appLoginUserName;
 
@@ -84,11 +87,11 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                .anyRequest().authenticated();
-                //.antMatchers("/**/*").denyAll();
+                .anyRequest().authenticated()
+                .antMatchers("/**/*").denyAll();
 
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-        http.addFilterAfter(jwtRequestFilter, ExceptionTranslationFilter.class);
+        http.addFilterAfter(simpleCORSFilter, ExceptionTranslationFilter.class);
 
     }
 

@@ -22,7 +22,7 @@ public class SimpleCORSFilter implements javax.servlet.Filter {
 
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		res.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
-		res.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type");
+		res.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 		if ( req.getMethod().equals("OPTIONS") ) {
         res.setStatus(HttpServletResponse.SC_OK);
         return;
