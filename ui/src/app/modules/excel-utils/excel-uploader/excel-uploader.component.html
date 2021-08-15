@@ -10,7 +10,7 @@
                             (change)="handleFileInput($event)">
                                          </td>
                         <td>
-                            <button type="button" class="btn btn-success" (click)="uploadExcel($event)">Upload</button>
+                            <button type="button" class="btn btn-success" (click)="uploadExcel($event)">Parse</button> <button *ngIf="loadedJsonObject && loadedJsonObject.length > 0" (click)="openModal('jsonData')" class="btn btn-info">Show Json Data</button>
                         </td>
                     </tr>
                     <tr *ngIf="loadedJsonObject">
@@ -20,11 +20,14 @@
                                 <pre>
                                 {{loadedJsonObject | json}}
                                 </pre>
-                                <button (click)="closeModal('jsonData');">Close</button>
+                                <button (click)="closeModal('jsonData');" class="btn btn-danger pull-right">Close</button>
+                                <br/>
                             </jw-modal>
                         </td>
-                        <td> 
-                            <button (click)="openModal('jsonData')">ShowData</button>
+                    </tr>
+                    <tr>
+                        <td>
+                            <json-to-table [jsonData]="loadedJsonObject"></json-to-table>
                         </td>
                     </tr>
                 </table>
